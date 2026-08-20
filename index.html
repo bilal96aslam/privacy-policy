@@ -1,1 +1,93 @@
+Privacy Policy for Cardora
+Last updated: 20 August 2026
 
+This Privacy Policy explains how Cardora ("the app," "we," "us," or "our") collects, uses, stores, and protects your information when you use our mobile application.
+
+1. Information We Collect
+1.1 Account Information (via Google Sign-In)
+When you sign in with Google, we receive the following information from your Google account:
+
+Your unique account identifier (User ID)
+Your email address
+Your display name
+Your profile photo URL (used only to display your avatar in the app; the photo itself is loaded directly from Google's servers, not stored by us)
+We do not receive or request access to your Google password, contacts, or any other Google account data beyond what's listed above.
+
+1.2 Content You Create
+As you use Cardora, we store the study content you create:
+
+Decks (subject names, colour/icon choices)
+Flashcards (questions, answers, explanations, and card type)
+Your review history (grades, review dates, and spaced-repetition scheduling data)
+1.3 Content You Provide for AI Flashcard Generation
+When you use the "Generate cards" feature, the text you paste or extract from a PDF is sent to our server, which forwards it to Google's Gemini AI service solely to generate flashcards from that text. This text is not stored permanently on our servers beyond what's needed to complete the request, and it is not linked to your identity when sent to Gemini. Only the study content itself is transmitted.
+
+1.4 Usage and Preference Data
+We store certain app preferences and usage counters, including:
+
+Your exam type and exam date
+Study preferences (daily new-card limit, reminder settings, theme)
+Your daily/weekly study streak
+The number of free AI flashcard generations you've used, and whether you have an active subscription
+1.5 Diagnostic Data
+In released (production) versions of the app, we use Firebase Crashlytics to automatically collect crash reports and error logs to help us fix bugs. This is disabled in development/testing builds. Crash reports may include technical device information (device model, OS version, app version) but do not include your flashcard content.
+
+1.6 Automatically Collected Technical Data
+To keep the app secure and functioning correctly, we use Firebase App Check, which verifies that requests to our servers come from a genuine, unmodified copy of our app. This process does not collect personal information about you. It verifies your device/app installation, not your identity.
+
+2. How We Use Your Information
+We use the information described above to:
+
+Authenticate you and keep your account secure
+Save and sync your decks, flashcards, and study progress across your devices
+Generate flashcards from text you provide, using Google's Gemini AI
+Enforce free-tier usage limits and manage subscription entitlements
+Send you local study reminders (these are scheduled entirely on your device and never involve sending your data anywhere)
+Diagnose and fix crashes and technical problems
+Improve the app's features and reliability
+We do not sell your personal information. We do not use your data for advertising, and we do not show ads in this app.
+
+3. How We Store Your Information
+Your study content (decks, cards, review history) is stored both locally on your device and in Google's Firebase Firestore database, associated with your account.
+Your account information (email, name, profile photo link) is managed by Firebase Authentication, Google's authentication infrastructure.
+All data in transit between the app and our servers is encrypted (HTTPS/TLS).
+4. Third-Party Services
+Cardora relies on the following third-party services to function. Each handles data according to its own privacy policy:
+
+Service	Purpose	Data Involved
+Google Firebase Authentication	Sign-in	Email, name, profile photo, account ID
+Google Cloud Firestore	Cloud storage/sync	Decks, cards, review history
+Google Cloud Functions	Server-side processing	Study text (for AI generation), account deletion requests
+Google Gemini API	AI flashcard generation	Text you submit for card generation
+Firebase Crashlytics	Crash reporting (release builds only)	Device/app diagnostic data
+Firebase App Check	App integrity verification	Device/app attestation tokens (no personal data)
+Google Sign-In	Authentication	Google account profile information
+We do not use any advertising networks or third-party analytics/tracking SDKs.
+
+5. Data Deletion
+You can permanently delete your account and all associated data at any time from within the app: go to Settings → Account → Delete account. When you do this:
+
+Your account information is permanently removed from Firebase Authentication.
+All of your decks, flashcards, and review history are permanently deleted from our Firestore database.
+Locally stored data on your device is also cleared.
+This action is irreversible. If you'd prefer to request deletion by email instead, you can contact us at the address below.
+
+6. Your Rights and Choices
+Depending on your location, you may have rights to:
+
+Access the personal data we hold about you
+Correct inaccurate data
+Request deletion of your data (see Section 5)
+Withdraw consent for data processing (by deleting your account or signing out)
+To exercise any of these rights, contact us using the email address below.
+
+7. Children's Privacy
+Cardora is not directed at children under 13 (or the relevant minimum age in your country), and we do not knowingly collect personal information from children.
+
+8. Changes to This Policy
+We may update this Privacy Policy from time to time. Material changes will be reflected by an updated "Last updated" date at the top of this page. Continued use of the app after changes constitutes acceptance of the updated policy.
+
+9. Contact Us
+If you have any questions, concerns, or requests regarding this Privacy Policy or your data, please contact us at:
+
+privacy@cardora.app
