@@ -29,21 +29,21 @@
 <body>
 
 <h1>Privacy Policy for Cardora</h1>
-<p class="updated">Last updated: 20 August 2026</p>
+<p class="updated">Last updated: 14 October 2026</p>
 
 <p>This Privacy Policy explains how Cardora ("the app," "we," "us," or "our") collects, uses, stores, and protects your information when you use our mobile application.</p>
 
 <h2>1. Information We Collect</h2>
 
-<h3>1.1 Account Information (via Google Sign-In)</h3>
-<p>When you sign in with Google, we receive the following information from your Google account:</p>
+<h3>1.1 Account Information (via Google or Apple Sign-In)</h3>
+<p>You can sign in with Google, or, on iOS, with Apple. We receive the following information when you do:</p>
 <ul>
   <li>Your unique account identifier (User ID)</li>
-  <li>Your email address</li>
-  <li>Your display name</li>
-  <li>Your profile photo URL (used only to display your avatar in the app; the photo itself is loaded directly from Google's servers, not stored by us)</li>
+  <li>Your email address (if you sign in with Apple and choose to hide your email, we receive the private relay address Apple generates instead of your real one)</li>
+  <li>Your display name (Apple shares this only the first time you sign in)</li>
+  <li>Your profile photo URL, when available (used only to display your avatar in the app; the photo itself is loaded directly from Google's servers, not stored by us — Apple does not provide a profile photo)</li>
 </ul>
-<p>We do not receive or request access to your Google password, contacts, or any other Google account data beyond what's listed above.</p>
+<p>We do not receive or request access to your Google or Apple password, contacts, or any other account data beyond what's listed above.</p>
 
 <h3>1.2 Content You Create</h3>
 <p>As you use Cardora, we store the study content you create:</p>
@@ -54,9 +54,17 @@
 </ul>
 
 <h3>1.3 Content You Provide for AI Flashcard Generation</h3>
-<p>When you use the "Generate cards" feature, the text you paste or extract from a PDF is sent to our server, which forwards it to Google's Gemini AI service solely to generate flashcards from that text. This text is not stored permanently on our servers beyond what's needed to complete the request, and it is not linked to your identity when sent to Gemini. Only the study content itself is transmitted.</p>
+<p>When you use the "Generate cards" feature, the text you paste or extract from a PDF is sent to our own server (a Cloudflare Worker we operate), which forwards it to Google's Gemini AI service solely to generate flashcards from that text. This text is not stored permanently on our servers beyond what's needed to complete the request, and it is not linked to your identity when sent to Gemini. Only the study content itself is transmitted.</p>
 
-<h3>1.4 Usage and Preference Data</h3>
+<h3>1.4 Purchases and Subscriptions</h3>
+<p>If you buy Cardora Pro, the purchase is handled entirely by Apple's App Store or Google Play — we never see or store your payment card details. To confirm and activate your subscription, the app sends a purchase token or signed transaction to our own server, which verifies it directly with Apple or Google and records only:</p>
+<ul>
+  <li>Whether your account currently has an active subscription</li>
+  <li>Which plan it is (monthly or yearly), so we can show the right status in the app</li>
+</ul>
+<p>We do not receive your card number, billing address, or any other payment details — those stay with Apple or Google.</p>
+
+<h3>1.5 Usage and Preference Data</h3>
 <p>We store certain app preferences and usage counters, including:</p>
 <ul>
   <li>Your exam type and exam date</li>
@@ -65,10 +73,13 @@
   <li>The number of free AI flashcard generations you've used, and whether you have an active subscription</li>
 </ul>
 
-<h3>1.5 Diagnostic Data</h3>
+<h3>1.6 Diagnostic Data</h3>
 <p>In released (production) versions of the app, we use Firebase Crashlytics to automatically collect crash reports and error logs to help us fix bugs. This is disabled in development/testing builds. Crash reports may include technical device information (device model, OS version, app version) but do not include your flashcard content.</p>
 
-<h3>1.6 Automatically Collected Technical Data</h3>
+<h3>1.7 Analytics Data</h3>
+<p>We use Firebase Analytics to understand how the app is used — for example, which screens are opened and which features are used — so we can improve it. This data is tied to an anonymous, device-level identifier, not to your name or email, and we do not use it for advertising.</p>
+
+<h3>1.8 Automatically Collected Technical Data</h3>
 <p>To keep the app secure and functioning correctly, we use Firebase App Check, which verifies that requests to our servers come from a genuine, unmodified copy of our app. This process does not collect personal information about you. It verifies your device/app installation, not your identity.</p>
 
 <h2>2. How We Use Your Information</h2>
@@ -77,10 +88,11 @@
   <li>Authenticate you and keep your account secure</li>
   <li>Save and sync your decks, flashcards, and study progress across your devices</li>
   <li>Generate flashcards from text you provide, using Google's Gemini AI</li>
-  <li>Enforce free-tier usage limits and manage subscription entitlements</li>
+  <li>Verify purchases and manage your Cardora Pro subscription status</li>
+  <li>Enforce free-tier usage limits</li>
   <li>Send you local study reminders (these are scheduled entirely on your device and never involve sending your data anywhere)</li>
   <li>Diagnose and fix crashes and technical problems</li>
-  <li>Improve the app's features and reliability</li>
+  <li>Understand app usage patterns so we can improve features and reliability</li>
 </ul>
 <p><strong>We do not sell your personal information. We do not use your data for advertising, and we do not show ads in this app.</strong></p>
 
@@ -96,20 +108,23 @@
 <table>
   <tr><th>Service</th><th>Purpose</th><th>Data Involved</th></tr>
   <tr><td>Google Firebase Authentication</td><td>Sign-in</td><td>Email, name, profile photo, account ID</td></tr>
+  <tr><td>Sign in with Apple</td><td>Sign-in (iOS only)</td><td>Apple account identifier, name (first sign-in only), email or private relay address</td></tr>
   <tr><td>Google Cloud Firestore</td><td>Cloud storage/sync</td><td>Decks, cards, review history</td></tr>
-  <tr><td>Google Cloud Functions</td><td>Server-side processing</td><td>Study text (for AI generation), account deletion requests</td></tr>
-  <tr><td>Google Gemini API</td><td>AI flashcard generation</td><td>Text you submit for card generation</td></tr>
+  <tr><td>Our server (Cloudflare Worker)</td><td>AI flashcard generation, purchase verification</td><td>Study text submitted for card generation; purchase tokens from the App Store or Google Play</td></tr>
+  <tr><td>Google Gemini API</td><td>AI flashcard generation (called by our server, never directly from your device)</td><td>Text you submit for card generation</td></tr>
+  <tr><td>Apple App Store / Google Play Billing</td><td>Subscription purchases</td><td>Purchase/subscription status (payment details are handled entirely by Apple or Google, not by us)</td></tr>
   <tr><td>Firebase Crashlytics</td><td>Crash reporting (release builds only)</td><td>Device/app diagnostic data</td></tr>
+  <tr><td>Firebase Analytics</td><td>Usage analytics</td><td>App events and screen views, tied to an anonymous device identifier</td></tr>
   <tr><td>Firebase App Check</td><td>App integrity verification</td><td>Device/app attestation tokens (no personal data)</td></tr>
-  <tr><td>Google Sign-In</td><td>Authentication</td><td>Google account profile information</td></tr>
 </table>
-<p>We do not use any advertising networks or third-party analytics/tracking SDKs.</p>
+<p>We use Firebase Analytics to understand how the app is used. We do not use any advertising networks, and we do not sell or share your data with third parties for advertising or tracking purposes.</p>
 
 <h2>5. Data Deletion</h2>
 <p>You can permanently delete your account and all associated data at any time from within the app: go to <strong>Settings &rarr; Account &rarr; Delete account</strong>. When you do this:</p>
 <ul>
   <li>Your account information is permanently removed from Firebase Authentication.</li>
   <li>All of your decks, flashcards, and review history are permanently deleted from our Firestore database.</li>
+  <li>If you signed in with Apple, we also ask Apple to revoke the app's access to your Apple account.</li>
   <li>Locally stored data on your device is also cleared.</li>
 </ul>
 <p>This action is irreversible. If you'd prefer to request deletion by email instead, you can contact us at the address below.</p>
@@ -132,7 +147,7 @@
 
 <h2>9. Contact Us</h2>
 <p>If you have any questions, concerns, or requests regarding this Privacy Policy or your data, please contact us at:</p>
-<p><strong><a href="mailto:its.shopbotics@gmail.com ">its.shopbotics@gmail.com</a></strong></p>
+<p><strong><a href="mailto:its.shopbotics@gmail.com">its.shopbotics@gmail.com</a></strong></p>
 
 </body>
 </html>
